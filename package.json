@@ -1,0 +1,26 @@
+{
+  "name": "express-mocks",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gallayl/express-mocks.git"
+  },
+  "author": "Gallay Lajos",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gallayl/express-mocks/issues"
+  },
+  "homepage": "https://github.com/gallayl/express-mocks#readme",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.4",
+    "passport-google": "^0.3.0",
+    "rimraf": "^2.6.1",
+    "typescript": "^2.4.2"
+  }
+}
