@@ -3,6 +3,8 @@ import { initialize as passportInit, session as passportSession, use as passport
 import { BasicStrategy } from 'passport-http';
 import * as expressSession from 'express-session';
 
+import { User } from '../models';
+
 export class Authentication {
     public static Configure(app: Application) {
 
@@ -12,17 +14,17 @@ export class Authentication {
 
         app.use(authenticate("basic"));
 
-        serializeUser(function(user: {id: number}, done) {
+        serializeUser<User, number>((user, done) => {
             done(null, user.id);
         });
         
         
-        deserializeUser(function(id, done) {
+        deserializeUser<User, number>((id, done) => {
 
             done(null, {name: 'alma', id: id})
         });
 
-        passportUse(new BasicStrategy(function (username, password, done) {
+        passportUse(new BasicStrategy((username, password, done) => {
             password = "";
             return done(null, { User: username });
         }));
