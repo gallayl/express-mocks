@@ -1,14 +1,19 @@
-import {SequelizeService} from '../services/SequelizeService';
+import {Table, Column, Model} from 'sequelize-typescript';
 
-const seq = SequelizeService.GetCurrent();
+@Table
+export class User extends Model<User>{
+    @Column({
+        allowNull: false;
+    })
+    public Name: string;
 
-export class User{
-    public Id: number;
+    @Column({
+        allowNull: false,
+        unique: true,
+        validate: {
+            isEmail: true
+        }
+    })
+    public Email: string;
+    
 }
-
-/** todo :( */
-seq.define<User, {}>('User', {
-    Id: {
-
-    }
-})
