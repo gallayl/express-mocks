@@ -21,7 +21,7 @@ export class Authentication {
         
         deserializeUser<User, number>((id, done) => {
 
-            done(null, {name: 'alma', id: id})
+            done(null, {name: 'alma', id: id} as any)
         });
 
         passportUse(new BasicStrategy((username, password, done) => {
